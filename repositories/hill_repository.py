@@ -8,6 +8,7 @@ def save(hill):
     results = run_sql(sql, values)
     id = results[0]["id"]
     hill.id = id
+    return
 
 
 def select_all():
@@ -15,7 +16,7 @@ def select_all():
     sql = "SELECT * FROM hills"
     results = run_sql(sql)
     for result in results:
-        hill = hill(result["name"], result["height"], result["area"], result["id"])
+        hill = Hill(result["name"], result["height"], result["area"], result["id"])
         hills.append(hill)
     return hills
 

@@ -8,6 +8,7 @@ def save(climber):
     results = run_sql(sql, values)
     id = results[0]["id"]
     climber.id = id
+    return
 
 
 def select_all():
