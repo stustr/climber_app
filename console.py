@@ -1,11 +1,11 @@
 import pdb
 
 from models.activity import Activity
-import repositories.activity_repository as act_rep
+import repositories.activity_repository as activity_repo
 
 from models.climber import Climber
-import repositories.climber_repository as climb_rep
+import repositories.climber_repository as climber_repo
 
 from models.hill import Hill
-import repositories.hill_repository as hill_rep
+import repositories.hill_repository as hill_repo
 
