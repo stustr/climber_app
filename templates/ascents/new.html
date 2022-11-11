@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block main %}
+<section class="ascent-form">
+  <h2>Ready to log a new ascent?</h2>
+  <form action="/ascents" method="POST">
+    <label for="name"
+      >Name: <input type="text" name="name" id="name-input-ascent"
+    /></label>
+    <label for="time"
+      >Time: <input type="number" name="time" id="time-input-ascent"
+    /></label>
+    <label for="description"
+      >Description:
+      <input type="text" name="description" id="description-input-ascent"
+    /></label>
+    <label for="hill">Hill: </label
+    ><select name="hill_id" id="hill">
+      {% for hill in hills %}
+      <option value="{{ hill.id }}">{{ hill.name }}</option>
+      {% endfor %}
+    </select>
+    <label for="climber">Climber: </label
+    ><select name="climber_id" id="climber">
+      {% for climber in climbers %}
+      <option value="{{ climber.id }}">{{ climber.name }}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" />
+  </form>
+</section>
+{% endblock main %}

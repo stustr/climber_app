@@ -1,0 +1,70 @@
+from flask import Blueprint, redirect, render_template, request
+from models.ascent import Ascent
+from repositories import (
+    ascent_repository as ascent_repo,
+    climber_repository as climber_repo,
+    hill_repository as hill_repo,
+)
+
+ascents_blueprint = Blueprint("ascents", __name__)
+
+# index
+@ascents_blueprint.route("/ascents")
+def ascents():
+    ascents = ascent_repo.select_all()
+    return render_template("ascents/index.html", ascents=ascents)
+
+
+# new
+@ascents_blueprint.route("/ascents/new")
+def new_ascent():
+    climbers = climber_repo.select_all()
+    hills = hill_repo.select_all()
+    return render_template("ascents/new.html", climbers=climbers, hills=hills)
+
+
+# create
+@ascents_blueprint.route("/ascents", methods=["POST"])
+def create_ascent():
+    climber_id = request.form["climber_id"]
+    hill_id = request.form["hill_id"]
+    name = request.form["name"]
+    time = request.form["time"]
+    description = request.form["description"]
+    climber = climber_repo.select(climber_id)
+    hill = hill_repo.select(hill_id)
+    new_ascent = Ascent(name, time, description, climber, hill)
+    ascent_repo.save(new_ascent)
+    return redirect("/ascents")
+
+
+# edit
+@ascents_blueprint.route("/ascents/<id>/edit")
+def edit_ascent(id):
+    ascent = ascent_repo.select(id)
+    climbers = climber_repo.select_all()
+    hills = hill_repo.select_all()
+    return render_template(
+        "ascents/edit.html", ascent=ascent, climbers=climbers, hills=hills
+    )
+
+
+# update
+@ascents_blueprint.route("/ascents/<id>", methods=["POST"])
+def update_ascent(id):
+    climber_id = request.form["climber_id"]
+    hill_id = request.form["hill_id"]
+    name = request.form["name"]
+    time = request.form["time"]
+    description = request.form["description"]
+    climber = climber_repo.select(climber_id)
+    hill = hill_repo.select(hill_id)
+    updated_ascent = Ascent(name, time, description, climber, hill, id)
+    ascent_repo.update(updated_ascent)
+
+
+# delete
+@ascents_blueprint.route("/ascents/<id>", methods=["POST"])
+def delete_ascent(id):
+    ascent_repo.delete(id)
+    return redirect("/ascents")

@@ -28,8 +28,8 @@
             <li class="dropdown">
               <a><span>Ascents</span></a>
               <ul class="submenu">
-                <li><a href="/activities">Recorded ascents</a></li>
-                <li><a href="/activities/new">Add new ascent</a></li>
+                <li><a href="/ascents">Recorded ascents</a></li>
+                <li><a href="/ascents/new">Add new ascent</a></li>
               </ul>
             </li>
           </ul>
@@ -37,12 +37,15 @@
         {% endblock header %}
       </header>
       <main>{% block main %} {% endblock main %}</main>
-      <footer>{% block footer %}
+      <footer>
+        {% block footer %}
         <ul>
           <li>Terms of Use</li>
           <li>About</li>
           <li>Cookies</li>
-        </ul>{% endblock footer %}</footer>
+        </ul>
+        {% endblock footer %}
+      </footer>
     </div>
   </body>
 </html>

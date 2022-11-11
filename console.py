@@ -1,7 +1,7 @@
 import pdb
 
-from models.activity import Activity
-import repositories.activity_repository as activity_repo
+from models.ascent import Ascent
+import repositories.ascent_repository as ascent_repo
 
 from models.climber import Climber
 import repositories.climber_repository as climber_repo
@@ -9,7 +9,7 @@ import repositories.climber_repository as climber_repo
 from models.hill import Hill
 import repositories.hill_repository as hill_repo
 
-activity_repo.delete_all()
+ascent_repo.delete_all()
 climber_repo.delete_all()
 hill_repo.delete_all()
 
@@ -29,7 +29,10 @@ hill_repo.save(hill_1)
 hill_repo.save(hill_2)
 hill_repo.save(hill_3)
 
-hill_repo.select(10)
+print(climber_repo.select(1).id)
 
-for hill in hill_repo.select_all():
-    print(hill.__dict__)
+ascent_1 = Ascent("trial ascent", 12.12, "trial ascent desc", climber_1, hill_1)
+ascent_repo.save(ascent_1)
+
+for ascent in ascent_repo.select_all():
+    print(ascent.__dict__)

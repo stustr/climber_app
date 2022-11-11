@@ -16,14 +16,14 @@ def select_all():
     sql = "SELECT * FROM climbers"
     results = run_sql(sql)
     for result in results:
-        climber = Climber(result["name"])
+        climber = Climber(result["name"], result["id"])
         climbers.append(climber)
     return climbers
 
 
 def select(id):
     climber = None
-    sql = "SELECT FROM climbers WHERE id = %s"
+    sql = "SELECT * FROM climbers WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
     if results:

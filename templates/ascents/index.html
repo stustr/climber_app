@@ -1,0 +1,5 @@
+{% extends 'base.html' %} {% block main %}
+<h2>These are the most recent ascents</h2>
+{% for ascent in ascents %}
+<p>{{ ascent.name }}</p>
+{% endfor %} {% endblock main %}

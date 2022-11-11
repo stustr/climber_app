@@ -9,7 +9,7 @@ climbers_blueprint = Blueprint("climbers", __name__)
 @climbers_blueprint.route("/climbers")
 def climbers():
     climbers = climber_repo.select_all()
-    return render_template("climber/index.html", climbers=climbers)
+    return render_template("climbers/index.html", climbers=climbers)
 
 
 # create

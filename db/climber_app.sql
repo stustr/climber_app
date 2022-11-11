@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS hills CASCADE;
 DROP TABLE IF EXISTS climbers CASCADE;
-DROP TABLE IF EXISTS activities;
+DROP TABLE IF EXISTS ascents;
 CREATE TABLE hills (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
@@ -11,7 +11,7 @@ CREATE TABLE climbers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255)
 );
-CREATE TABLE activities (
+CREATE TABLE ascents (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     time FLOAT,

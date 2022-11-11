@@ -1,4 +1,4 @@
-class Activity:
+class Ascent:
     def __init__(self, name, time, description, climber, hill, id=None) -> None:
         self.name = name
         self.time = time
