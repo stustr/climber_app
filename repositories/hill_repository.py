@@ -3,8 +3,8 @@ from models.hill import Hill
 
 
 def save(hill):
-    sql = "INSERT INTO hills (name) VALUES (%s) RETURNING id"
-    values = [hill.name]
+    sql = "INSERT INTO hills (name, height, area) VALUES (%s, %s, %s) RETURNING id"
+    values = [hill.name, hill.height, hill.area]
     results = run_sql(sql, values)
     id = results[0]["id"]
     hill.id = id
