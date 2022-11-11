@@ -1,5 +1,5 @@
 class Hill:
-    def __init__(self, name, height, area) -> None:
+    def __init__(self, name, height, area, id=None) -> None:
         self.name = name
         self.height = height
         self.area = area

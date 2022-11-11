@@ -17,6 +17,7 @@ def climbers():
 def create_climber():
     name = request.form["name"]
     new_climber = Climber(name)
+    climber_repo.save(new_climber)
     return redirect("/climbers")
 
 

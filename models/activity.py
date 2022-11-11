@@ -1,5 +1,5 @@
 class Activity:
-    def __init__(self, name, time, description, climber, hill, id) -> None:
+    def __init__(self, name, time, description, climber, hill, id=None) -> None:
         self.name = name
         self.time = time
         self.description = description
