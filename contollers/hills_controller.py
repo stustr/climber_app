@@ -52,3 +52,9 @@ def update_hill(id):
 def delete_hill(id):
     hill_repo.delete(id)
     return redirect("/hills")
+
+# show
+@hills_blueprint.route("/hills/<id>")
+def show_hill(id):
+    hill = hill_repo.select(id)
+    return render_template("/hills/show.html", hill=hill)

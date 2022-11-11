@@ -63,7 +63,9 @@ a {
 }
 
 main {
-    /* flex-grow: 1; */
+    background-color: orangered;
+    padding: 0 2rem;
+    flex: 1;
 }
 
 footer {
@@ -79,4 +81,8 @@ footer ul{
     margin: 0;
     padding: 1rem;
     gap: 1rem;
+}
+
+#hill-profile-gallery{
+    color: black;
 }

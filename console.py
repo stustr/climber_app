@@ -29,4 +29,7 @@ hill_repo.save(hill_1)
 hill_repo.save(hill_2)
 hill_repo.save(hill_3)
 
+hill_repo.select(10)
 
+for hill in hill_repo.select_all():
+    print(hill.__dict__)

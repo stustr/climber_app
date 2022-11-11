@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS hills;
-DROP TABLE IF EXISTS climbers;
+DROP TABLE IF EXISTS hills CASCADE;
+DROP TABLE IF EXISTS climbers CASCADE;
 DROP TABLE IF EXISTS activities;
 CREATE TABLE hills (
     id SERIAL PRIMARY KEY,
@@ -16,6 +16,6 @@ CREATE TABLE activities (
     name VARCHAR(255),
     time FLOAT,
     description VARCHAR,
-    climber_id SERIAL NOT NULL REFERENCES climbers(id) ON DELETE CASCADE,
-    hill_id SERIAL NOT NULL REFERENCES hills(id) ON DELETE CASCADE
+    climber_id SERIAL NOT NULL REFERENCES climbers(id),
+    hill_id SERIAL NOT NULL REFERENCES hills(id)
 );

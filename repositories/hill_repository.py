@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.hill import Hill
+import pdb
 
 
 def save(hill):
@@ -23,12 +24,12 @@ def select_all():
 
 def select(id):
     hill = None
-    sql = "SELECT FROM hills WHERE id = %s"
+    sql = "SELECT * FROM hills WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
     if results:
         result = results[0]
-        hill = hill(result["name"], result["height"], result["area"], result["id"])
+        hill = Hill(result["name"], result["height"], result["area"], result["id"])
     return hill
 
 

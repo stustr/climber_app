@@ -1,3 +1,14 @@
 {% extends 'base.html' %}
 {% block main %}
-<h1 style="color: black;">Hello corbeteers</h1>{% endblock main %}
+<h1 style="color: black;">Hello corbeteers</h1>
+{% for hill in hills %}
+<section>
+    <a class="hill-profile-gallery" href="/hills/{{hill.id}}">
+        <p>{{ hill.name }}</p>
+        <img src="" alt="">
+        <p>Height: {{ hill.height }}</p>
+        <p>Location: {{ hill.area }}</p>
+    </a>
+</section>
+{% endfor %}
+{% endblock main %}
