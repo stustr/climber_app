@@ -9,7 +9,7 @@ hills_blueprint = Blueprint("hills", __name__)
 @hills_blueprint.route("/hills")
 def hills():
     hills = hill_repo.select_all()
-    return render_template("hill/index.html", hills=hills)
+    return render_template("hills/index.html", hills=hills)
 
 
 # create
@@ -48,7 +48,7 @@ def update_hill(id):
 
 
 # delete
-@hills_blueprint.route("hills/<id>/delete", methods=["POST"])
+@hills_blueprint.route("/hills/<id>/delete", methods=["POST"])
 def delete_hill(id):
     hill_repo.delete(id)
     return redirect("/hills")

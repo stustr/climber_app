@@ -44,7 +44,7 @@ def update_climber(id):
 
 
 # delete
-@climbers_blueprint.route("climbers/<id>/delete", methods=["POST"])
+@climbers_blueprint.route("/climbers/<id>/delete", methods=["POST"])
 def delete_climber(id):
     climber_repo.delete(id)
     return redirect("/climbers")

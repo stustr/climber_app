@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <header>
+        {% block header %}
+        <nav>
+          <ul id="menu">
+            <a href="/">Climb Corbetts</a>
+            <li><a href="/hills">Hills</a></li>
+            <li class="dropdown">
+              <a><span>Climbers</span></a>
+              <ul class="submenu">
+                <li><a href="/climbers">Current climbers</a></li>
+                <li><a href="/climbers/new">Add new climber</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a><span>Ascents</span></a>
+              <ul class="submenu">
+                <li><a href="/activities">Recorded ascents</a></li>
+                <li><a href="/activities/new">Add new ascent</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        {% endblock header %}
+      </header>
+      <main>{% block main %} {% endblock main %}</main>
+      <footer>{% block footer %}
+        <ul>
+          <li>Terms of Use</li>
+          <li>About</li>
+          <li>Cookies</li>
+        </ul>{% endblock footer %}</footer>
+    </div>
+  </body>
+</html>
