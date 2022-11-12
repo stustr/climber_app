@@ -31,7 +31,7 @@ def select_all():
         climber = climber_repo.select(result["climber_id"])
         hill = hill_repo.select(result["hill_id"])
         ascent = Ascent(
-            result["date"], result["description"], climber.name, hill.name, result["id"]
+            result["date"], result["description"], climber, hill, result["id"]
         )
         ascents.append(ascent)
     return ascents

@@ -3,11 +3,13 @@
 <table>
   <tr>
     <th>Corbett</th>
+    <th>Height</th>
     <th>Date</th>
   </tr>
-  {% for ascent in ascents %} {% if ascent.climber == climber.name %}
+  {% for ascent in ascents %} {% if ascent.climber.name == climber.name %}
   <tr>
-    <td>{{ ascent. }}</td>
+    <td>{{ ascent.hill.name }}</td>
+    <td>{{ ascent.hill.height }}</td>
     <td>{{ ascent.date }}</td>
     <td><a href="/ascents/{{ ascent.id }}/edit">Edit</a></td>
     <td>
