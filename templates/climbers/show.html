@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block main %}
 <h2>{{climber.name}} these are your ascents</h2>
+<h3>You've hit {{ percent_completed[0] }} summits. That's {{ percent_completed[1] }}% of the total. Well done - now go get the next one!</h3>
 <table>
   <tr>
     <th>Corbett</th>
@@ -24,7 +25,7 @@
 <table>
   <tr>
     <th>Corbett</th>
-    <th>Times climbed</th>
+    <th>Ascents</th>
   </tr>
   {% for climb in climbs %}
   <tr>
@@ -33,10 +34,8 @@
   </tr>
   {% endfor %}
 </table>
-<h3>Total m climbed:</h3>
-{% for climb in climbs %}
-
-{% endfor %}
+<h3>Total climbed:</h3>
+<h2>{{ total_m_climbed }} m</h2>
 <h3>Been on a climb?</h3>
 <button><a href="/ascents/new">Add a new ascent</a></button>
 {% endblock main %}
