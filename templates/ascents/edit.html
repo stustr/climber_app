@@ -1,1 +1,42 @@
 {% extends 'base.html' %}
+{% block main %}
+<section class="ascent-update-form">
+    <h2>Want to change this ascent?</h2>
+    <table>
+        <tr>
+          <th>Corbett</th>
+          <th>Height</th>
+          <th>Date</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>{{ ascent.hill.name }}</td>
+          <td>{{ ascent.hill.height }}</td>
+          <td>{{ ascent.date }}</td>
+          <td>{{ ascent.description }}</td>
+        </tr>
+      </table>
+    <form action="/ascents"/{{ascent.id}} method="POST">
+      <label for="hill">Hill: </label
+      ><select name="hill_id" id="hill">
+        {% for hill in hills %}
+        <option value="{{ hill.id }}">{{ hill.name }}</option>
+        {% endfor %}
+      </select>
+      <label for="climber">Climber: </label
+      ><select name="climber_id" id="climber">
+        {% for climber in climbers %}
+        <option value="{{ climber.id }}">{{ climber.name }}</option>
+        {% endfor %}
+      </select>
+      <label for="date"
+        >Date: <input type="date" name="date" id="date-input-ascent"
+      /></label>
+      <label for="description"
+        >Description:
+        <textarea name="description" id="description-input-ascent" cols="30" rows="1"></textarea>
+        </label>
+      <input type="submit" />
+    </form>
+  </section>
+  {% endblock main %}

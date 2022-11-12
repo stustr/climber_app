@@ -466,10 +466,19 @@ hill_repo.save(hill_221)
 hill_222 = Hill("Beinn na h-Uamha", 762.4, "Highland")
 hill_repo.save(hill_222)
 
-print(climber_repo.select(1).id)
-
 ascent_1 = Ascent('2019-05-31', 'trial ascent desc', climber_1, hill_1)
 ascent_repo.save(ascent_1)
+ascent_2 = Ascent('2019-05-30', 'trial ascent desc', climber_1, hill_1)
+ascent_repo.save(ascent_2)
+ascent_3 = Ascent('2019-05-29', 'trial ascent desc', climber_1, hill_1)
+ascent_repo.save(ascent_3)
+ascent_4 = Ascent('2019-05-28', 'trial ascent desc', climber_1, hill_1)
+ascent_repo.save(ascent_4)
+ascent_5 = Ascent('2019-05-27', 'trial ascent desc', climber_1, hill_2)
+ascent_repo.save(ascent_5)
+ascent_6 = Ascent('2019-05-26', 'trial ascent desc', climber_2, hill_1)
+ascent_repo.save(ascent_6)
+ascent_7 = Ascent('2019-05-25', 'trial ascent desc', climber_2, hill_1)
+ascent_repo.save(ascent_7)
 
-for ascent in ascent_repo.select_all():
-    print(ascent.__dict__)
+ascent_repo.climbers_climbs(1)

@@ -3,6 +3,7 @@ from flask import Blueprint, redirect, render_template, request
 from models.climber import Climber
 import repositories.climber_repository as climber_repo
 import repositories.ascent_repository as ascent_repo
+import repositories.hill_repository as hill_repo
 
 climbers_blueprint = Blueprint("climbers", __name__)
 
@@ -56,4 +57,6 @@ def delete_climber(id):
 def show_climber(id):
     climber = climber_repo.select(id)
     ascents = ascent_repo.select_all()
-    return render_template("/climbers/show.html", climber=climber, ascents=ascents)
+    climbs = ascent_repo.climbers_climbs(id)
+    hills = hill_repo.select_all()
+    return render_template("/climbers/show.html", climber=climber, ascents=ascents, climbs=climbs, hills=hills)

@@ -80,3 +80,19 @@ def update(ascent):
     ]
     run_sql(sql, values)
     return
+
+def aggregate_climbs_all():
+    sql = "SELECT climber_id, hill_id, Count(*) AS Climbs FROM ascents GROUP BY climber_id, hill_id"
+    results = run_sql(sql)
+    return results
+
+
+def climbers_climbs(id):
+    climbs = []
+    sql = "SELECT hill_id, Count(*) AS climbs FROM ascents WHERE climber_id = %s GROUP BY climber_id, hill_id"
+    values = [id]
+    results = run_sql(sql, values)
+    for result in results:
+        climb = [result["hill_id"], result["climbs"]]
+        climbs.append(climb)
+    return climbs

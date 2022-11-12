@@ -8,8 +8,8 @@
   </tr>
   {% for ascent in ascents %}
   <tr>
-    <td><a href="/ascents/{{ascent.id}}">{{ ascent.hill }}</a></td>
-    <td>{{ ascent.climber }}</td>
+    <td><a href="/ascents/{{ascent.id}}">{{ ascent.hill.name }}</a></td>
+    <td>{{ ascent.climber.name }}</td>
     <td>{{ ascent.date }}</td>
   </tr>
   {% endfor %}

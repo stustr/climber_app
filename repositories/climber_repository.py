@@ -49,3 +49,7 @@ def delete(id):
 def delete_all():
     sql = "DELETE FROM climbers"
     run_sql(sql)
+    
+    
+def total_climbing_height(id):
+    
