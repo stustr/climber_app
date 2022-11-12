@@ -1,5 +1,17 @@
 {% extends 'base.html' %} {% block main %}
 <h2>These are the most recent ascents</h2>
-{% for ascent in ascents %}
-<p>{{ ascent.name }}</p>
-{% endfor %} {% endblock main %}
+<table>
+  <tr>
+    <th>Corbett</th>
+    <th>Climber</th>
+    <th>Date</th>
+  </tr>
+  {% for ascent in ascents %}
+  <tr>
+    <td><a href="/ascents/{{ascent.id}}">{{ ascent.hill }}</a></td>
+    <td>{{ ascent.climber }}</td>
+    <td>{{ ascent.date }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock main %}

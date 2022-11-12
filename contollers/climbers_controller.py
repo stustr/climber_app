@@ -2,6 +2,7 @@ from flask import Blueprint, redirect, render_template, request
 
 from models.climber import Climber
 import repositories.climber_repository as climber_repo
+import repositories.ascent_repository as ascent_repo
 
 climbers_blueprint = Blueprint("climbers", __name__)
 
@@ -48,3 +49,11 @@ def update_climber(id):
 def delete_climber(id):
     climber_repo.delete(id)
     return redirect("/climbers")
+
+
+# show
+@climbers_blueprint.route("/climbers/<id>")
+def show_climber(id):
+    climber = climber_repo.select(id)
+    ascents = ascent_repo.select_all()
+    return render_template("/climbers/show.html", climber=climber, ascents=ascents)

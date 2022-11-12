@@ -9,10 +9,9 @@ import pdb
 
 
 def save(ascent):
-    sql = "INSERT INTO ascents (name, time, description, climber_id, hill_id) values (%s, %s, %s, %s, %s)RETURNING id"
+    sql = "INSERT INTO ascents (date, description, climber_id, hill_id) values (%s, %s, %s, %s)RETURNING id"
     values = [
-        ascent.name,
-        ascent.time,
+        ascent.date,
         ascent.description,
         ascent.climber.id,
         ascent.hill.id,
@@ -32,12 +31,7 @@ def select_all():
         climber = climber_repo.select(result["climber_id"])
         hill = hill_repo.select(result["hill_id"])
         ascent = Ascent(
-            result["name"],
-            result["time"],
-            result["description"],
-            climber.name,
-            hill.name,
-            result["id"]
+            result["date"], result["description"], climber.name, hill.name, result["id"]
         )
         ascents.append(ascent)
     return ascents
@@ -53,8 +47,7 @@ def select(id):
         climber = climber_repo.select(result["climber_id"])
         hill = hill_repo.select(result["hill_id"])
         ascent = Ascent(
-            result["name"],
-            result["time"],
+            result["date"],
             result["description"],
             climber.name,
             hill.name,
@@ -64,7 +57,7 @@ def select(id):
 
 
 def delete(id):
-    sql = "DELETE * FROM ascents WHERE id = %s"
+    sql = "DELETE FROM ascents WHERE id = %s"
     values = [id]
     run_sql(sql, values)
     return
@@ -77,10 +70,9 @@ def delete_all():
 
 
 def update(ascent):
-    sql = "UPDATE ascents SET (name, time, description, climber_id, hill_id) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    sql = "UPDATE ascents SET (date, description, climber_id, hill_id) = (%s, %s, %s, %s) WHERE id = %s"
     values = [
-        ascent.name,
-        ascent.time,
+        ascent.date,
         ascent.description,
         ascent.climber.id,
         ascent.hill.id,

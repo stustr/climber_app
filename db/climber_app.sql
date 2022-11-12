@@ -13,8 +13,7 @@ CREATE TABLE climbers (
 );
 CREATE TABLE ascents (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    time FLOAT,
+    date DATE NOT NULL DEFAULT CURRENT_DATE,
     description VARCHAR,
     climber_id SERIAL NOT NULL REFERENCES climbers(id),
     hill_id SERIAL NOT NULL REFERENCES hills(id)

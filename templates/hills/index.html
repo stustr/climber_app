@@ -1,14 +1,18 @@
-{% extends 'base.html' %}
-{% block main %}
-<h1 style="color: black;">Hello corbeteers</h1>
-{% for hill in hills %}
-<section>
-    <a class="hill-profile-gallery" href="/hills/{{hill.id}}">
-        <p>{{ hill.name }}</p>
-        <img src="" alt="">
-        <p>Height: {{ hill.height }}</p>
-        <p>Location: {{ hill.area }}</p>
-    </a>
-</section>
-{% endfor %}
+{% extends 'base.html' %} {% block main %}
+<h1>Hello corbeteers</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Height</th>
+    <th>Location</th>
+  </tr>
+  {% for hill in hills %}
+  <tr>
+    <a href="/hills/{{hill.id}}"><td>{{ hill.name }}</td></a>
+    <td>{{ hill.height }}</td>
+    <td>{{ hill.area }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
 {% endblock main %}

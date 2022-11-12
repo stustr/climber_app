@@ -28,12 +28,11 @@ def new_ascent():
 def create_ascent():
     climber_id = request.form["climber_id"]
     hill_id = request.form["hill_id"]
-    name = request.form["name"]
-    time = request.form["time"]
+    date = request.form["date"]
     description = request.form["description"]
     climber = climber_repo.select(climber_id)
     hill = hill_repo.select(hill_id)
-    new_ascent = Ascent(name, time, description, climber, hill)
+    new_ascent = Ascent(date, description, climber, hill)
     ascent_repo.save(new_ascent)
     return redirect("/ascents")
 
@@ -54,17 +53,22 @@ def edit_ascent(id):
 def update_ascent(id):
     climber_id = request.form["climber_id"]
     hill_id = request.form["hill_id"]
-    name = request.form["name"]
-    time = request.form["time"]
+    date = request.form["date"]
     description = request.form["description"]
     climber = climber_repo.select(climber_id)
     hill = hill_repo.select(hill_id)
-    updated_ascent = Ascent(name, time, description, climber, hill, id)
+    updated_ascent = Ascent(date, description, climber, hill, id)
     ascent_repo.update(updated_ascent)
 
 
 # delete
-@ascents_blueprint.route("/ascents/<id>", methods=["POST"])
-def delete_ascent(id):
+@ascents_blueprint.route("/ascents/<id>/delete", methods=["POST"])
+def delete_ascents(id):
     ascent_repo.delete(id)
     return redirect("/ascents")
+
+# show
+@ascents_blueprint.route("/ascents/<id>")
+def show_ascents(id):
+    ascent = ascent_repo.select(id)
+    return render_template("/ascents/show.html", ascent=ascent)

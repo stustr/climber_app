@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block main %}
+<h2>{{climber.name}} these are your ascents</h2>
+<table>
+  <tr>
+    <th>Corbett</th>
+    <th>Date</th>
+  </tr>
+  {% for ascent in ascents %} {% if ascent.climber == climber.name %}
+  <tr>
+    <td>{{ ascent.hill }}</td>
+    <td>{{ ascent.date }}</td>
+    <td><a href="/ascents/{{ ascent.id }}/edit">Edit</a></td>
+    <td>
+      <form action="/ascents/{{ ascent.id }}/delete" method="POST">
+        <input type="submit" value="Delete" />
+      </form>
+    </td>
+  </tr>
+{% endif %} {% endfor %}
+</table>{% endblock main %}
