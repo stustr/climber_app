@@ -8,10 +8,36 @@
   </tr>
   {% for ascent in ascents %}
   <tr>
-    <td><a href="/ascents/{{ascent.id}}">{{ ascent.hill.name }}</a></td>
+    <td>{{ ascent.hill.name }}</td>
     <td>{{ ascent.climber.name }}</td>
     <td>{{ ascent.date }}</td>
   </tr>
+  {% endfor %}
+</table>
+<h2>Climber leaderboard: Number (all time)</h2>
+<table>
+  <th>Climber</th>
+  <th>Number</th>
+  <th>Percent</th>
+  {% for result in all_time_summits %}
+  <tr>
+    <td>{{ climbers[result[0]-1].name }}</td>
+    <td>{{ result[1] }}</td>
+    <td> {{ (result[1]/222 * 100)|round(2, 'ceil') }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<h2>Climber leaderboard: Height(all time)</h2>
+<table>
+  <th>Climber</th>
+  <th>Height(m)</th>
+  {% for result in all_time_heights %}
+  {% if result[1]>0 %}
+  <tr>
+    <td>{{ climbers[result[0]-1].name }}</td>
+    <td>{{ result[1] }}</td>
+  </tr>
+  {% endif %}
   {% endfor %}
 </table>
 {% endblock main %}

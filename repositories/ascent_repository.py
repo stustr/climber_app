@@ -81,6 +81,7 @@ def update(ascent):
     run_sql(sql, values)
     return
 
+
 def aggregate_climbs_all():
     sql = "SELECT climber_id, hill_id, Count(*) AS Climbs FROM ascents GROUP BY climber_id, hill_id"
     results = run_sql(sql)
@@ -96,3 +97,20 @@ def climbers_climbs(id):
         climb = [result["hill_id"], result["climbs"]]
         climbs.append(climb)
     return climbs
+
+
+def climbing_comm_summits_alltime():
+    all_time_summits = []
+    sql = "SELECT ascents.climber_id, Count(DISTINCT hill_id) AS corbetts FROM ascents GROUP BY ascents.climber_id ORDER BY corbetts DESC"
+    results = run_sql(sql)
+    for result in results:
+        all_time_summits.append(result)
+    return all_time_summits
+
+def climbing_comm_height_alltime():
+    all_time_height = []
+    climbers = climber_repo.select_all()
+    for climber in climbers:
+        total = [climber.id, climber_repo.total_climbing_height(climber.id)]
+        all_time_height.append(total)
+    return all_time_height

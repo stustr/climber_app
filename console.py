@@ -481,4 +481,4 @@ ascent_repo.save(ascent_6)
 ascent_7 = Ascent('2019-05-25', 'trial ascent desc', climber_2, hill_1)
 ascent_repo.save(ascent_7)
 
-print(climber_repo.amount_completed(1))
+print(ascent_repo.climbing_comm_height_alltime())

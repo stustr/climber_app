@@ -12,7 +12,15 @@ ascents_blueprint = Blueprint("ascents", __name__)
 @ascents_blueprint.route("/ascents")
 def ascents():
     ascents = ascent_repo.select_all()
-    return render_template("ascents/index.html", ascents=ascents)
+    climbers = climber_repo.select_all()
+    all_time_summits = ascent_repo.climbing_comm_summits_alltime()
+    all_time_heights = ascent_repo.climbing_comm_height_alltime()
+    return render_template(
+        "ascents/index.html",
+        ascents=ascents,
+        climbers=climbers,
+        all_time_summits=all_time_summits, all_time_heights=all_time_heights
+    )
 
 
 # new
@@ -67,8 +75,16 @@ def delete_ascents(id):
     ascent_repo.delete(id)
     return redirect("/ascents")
 
+
 # show
 @ascents_blueprint.route("/ascents/<id>")
 def show_ascents(id):
     ascent = ascent_repo.select(id)
-    return render_template("/ascents/show.html", ascent=ascent)
+    climbers = climber_repo.select_all()
+    all_time_stats = ascent_repo.climbing_comm_stats_alltime()
+    return render_template(
+        "/ascents/show.html",
+        ascent=ascent,
+        climbers=climbers,
+        all_time_stats=all_time_stats,
+    )
