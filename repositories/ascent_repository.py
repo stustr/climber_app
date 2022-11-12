@@ -49,8 +49,8 @@ def select(id):
         ascent = Ascent(
             result["date"],
             result["description"],
-            climber.name,
-            hill.name,
+            climber,
+            hill,
             result["id"],
         )
     return ascent

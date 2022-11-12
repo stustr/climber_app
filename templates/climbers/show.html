@@ -7,7 +7,7 @@
   </tr>
   {% for ascent in ascents %} {% if ascent.climber == climber.name %}
   <tr>
-    <td>{{ ascent.hill }}</td>
+    <td>{{ ascent. }}</td>
     <td>{{ ascent.date }}</td>
     <td><a href="/ascents/{{ ascent.id }}/edit">Edit</a></td>
     <td>
@@ -17,4 +17,19 @@
     </td>
   </tr>
 {% endif %} {% endfor %}
-</table>{% endblock main %}
+</table>
+<h3>Corbets you've climbed:</h3>
+<table>
+  <tr>
+    <th>Corbett</th>
+    <th>Times climbed</th>
+  </tr>
+  {% for ascent in ascents %}
+  {% if ascent.climber == climber.name %}
+  <tr>
+    <td>{{ ascent.hill }}</td>
+  </tr>{% endif %}{% endfor %}
+</table>
+<h3>Been on a climb?</h3>
+<button><a href="/ascents/new">Add a new ascent</a></button>
+{% endblock main %}

@@ -3,9 +3,8 @@
 <h1 style="color: black;">Hello corbeteers</h1>
 {% for climber in climbers %}
 <section>
-    <a class="climber-profile-gallery" href="/climbers/{{climber.id}}">
-        <p>{{ climber.name }}</p>
-    </a>
+    <p>{{ climber.name }}</p>
+    <button><a class="climber-profile-gallery" href="/climbers/{{climber.id}}">Profile</a></button>
 </section>
 {% endfor %}
 {% endblock main %}
