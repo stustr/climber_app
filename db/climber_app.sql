@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS hills CASCADE;
 DROP TABLE IF EXISTS climbers CASCADE;
+DROP TABLE IF EXISTS ratings;
 DROP TABLE IF EXISTS ascents;
 CREATE TABLE hills (
     id SERIAL PRIMARY KEY,
@@ -11,6 +12,11 @@ CREATE TABLE hills (
 CREATE TABLE climbers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255)
+);
+CREATE TABLE ratings (
+    id SERIAL PRIMARY KEY,
+    hill SERIAL NOT NULL REFERENCES hills(id),
+    score INT 
 );
 CREATE TABLE ascents (
     id SERIAL PRIMARY KEY,

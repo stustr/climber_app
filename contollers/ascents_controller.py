@@ -39,7 +39,7 @@ def create_ascent():
     date = request.form["date"]
     description = request.form["description"]
     climber = climber_repo.select(climber_id)
-    hill = hill_repo.select(hill_id)
+    hill = hill_repo.select_by_id(hill_id)
     new_ascent = Ascent(date, description, climber, hill)
     ascent_repo.save(new_ascent)
     return redirect("/ascents")
@@ -64,7 +64,7 @@ def update_ascent(id):
     date = request.form["date"]
     description = request.form["description"]
     climber = climber_repo.select(climber_id)
-    hill = hill_repo.select(hill_id)
+    hill = hill_repo.select_by_id(hill_id)
     updated_ascent = Ascent(date, description, climber, hill, id)
     ascent_repo.update(updated_ascent)
 

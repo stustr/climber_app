@@ -71,3 +71,4 @@ def amount_completed(id):
     for result in results:
         climbs.append(result)
     return [len(climbs), math.ceil(len(climbs)/222 * 100)]
+

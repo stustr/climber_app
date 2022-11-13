@@ -1,4 +1,5 @@
 import pdb
+import pandas
 
 from models.ascent import Ascent
 import repositories.ascent_repository as ascent_repo
@@ -466,19 +467,20 @@ hill_repo.save(hill_221)
 hill_222 = Hill("Beinn na h-Uamha", 762.4, "Highland")
 hill_repo.save(hill_222)
 
-ascent_1 = Ascent('2019-05-31', 'trial ascent desc', climber_1, hill_1)
+ascent_1 = Ascent('2022-10-31', 'trial ascent desc', climber_1, hill_1)
 ascent_repo.save(ascent_1)
-ascent_2 = Ascent('2019-05-30', 'trial ascent desc', climber_1, hill_1)
+ascent_2 = Ascent('2022-10-30', 'trial ascent desc', climber_1, hill_1)
 ascent_repo.save(ascent_2)
-ascent_3 = Ascent('2019-05-29', 'trial ascent desc', climber_1, hill_1)
+ascent_3 = Ascent('2022-09-29', 'trial ascent desc', climber_1, hill_1)
 ascent_repo.save(ascent_3)
-ascent_4 = Ascent('2019-05-28', 'trial ascent desc', climber_1, hill_1)
+ascent_4 = Ascent('2022-09-28', 'trial ascent desc', climber_1, hill_1)
 ascent_repo.save(ascent_4)
-ascent_5 = Ascent('2019-05-27', 'trial ascent desc', climber_1, hill_2)
+ascent_5 = Ascent('2022-09-27', 'trial ascent desc', climber_1, hill_2)
 ascent_repo.save(ascent_5)
-ascent_6 = Ascent('2019-05-26', 'trial ascent desc', climber_2, hill_1)
+ascent_6 = Ascent('2022-10-26', 'trial ascent desc', climber_2, hill_1)
 ascent_repo.save(ascent_6)
-ascent_7 = Ascent('2019-05-25', 'trial ascent desc', climber_2, hill_1)
+ascent_7 = Ascent('2022-10-25', 'trial ascent desc', climber_2, hill_1)
 ascent_repo.save(ascent_7)
 
-print(ascent_repo.climbing_comm_height_alltime())
+column_names = ["date", "climber", "count"]
+print(pandas.DataFrame(ascent_repo.trial_pandas(), columns=column_names))

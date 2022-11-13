@@ -17,19 +17,48 @@ def select_all():
     sql = "SELECT * FROM hills"
     results = run_sql(sql)
     for result in results:
-        hill = Hill(result["name"], result["height"], result["area"], result["image_path"], result["id"])
+        hill = Hill(
+            result["name"],
+            result["height"],
+            result["area"],
+            result["image_path"],
+            result["id"],
+        )
         hills.append(hill)
     return hills
 
 
-def select(id):
+def select_by_id(id):
     hill = None
     sql = "SELECT * FROM hills WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
     if results:
         result = results[0]
-        hill = Hill(result["name"], result["height"], result["area"], result["image_path"], result["id"])
+        hill = Hill(
+            result["name"],
+            result["height"],
+            result["area"],
+            result["image_path"],
+            result["id"],
+        )
+    return hill
+
+
+def select_by_name(name):
+    hill = None
+    sql = "SELECT * FROM hills WHERE name = %s"
+    values = [name]
+    results = run_sql(sql, values)
+    if results:
+        result = results[0]
+        hill = Hill(
+            result["name"],
+            result["height"],
+            result["area"],
+            result["image_path"],
+            result["id"],
+        )
     return hill
 
 

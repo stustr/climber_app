@@ -2,6 +2,7 @@ from flask import Blueprint, redirect, render_template, request
 
 from models.hill import Hill
 import repositories.hill_repository as hill_repo
+import repositories.rating_repository as rating_repo
 
 hills_blueprint = Blueprint("hills", __name__)
 
@@ -56,5 +57,5 @@ def delete_hill(id):
 # show
 @hills_blueprint.route("/hills/<id>")
 def show_hill(id):
-    hill = hill_repo.select(id)
+    hill = hill_repo.select_by_id(id)
     return render_template("/hills/show.html", hill=hill)
