@@ -5,7 +5,8 @@ CREATE TABLE hills (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     height FLOAT,
-    area VARCHAR(255)
+    area VARCHAR(255),
+    image_path VARCHAR(500)
 );
 CREATE TABLE climbers (
     id SERIAL PRIMARY KEY,

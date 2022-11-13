@@ -4,8 +4,8 @@ import pdb
 
 
 def save(hill):
-    sql = "INSERT INTO hills (name, height, area) VALUES (%s, %s, %s) RETURNING id"
-    values = [hill.name, hill.height, hill.area]
+    sql = "INSERT INTO hills (name, height, area, image_path) VALUES (%s, %s, %s, %s) RETURNING id"
+    values = [hill.name, hill.height, hill.area, hill.image_path]
     results = run_sql(sql, values)
     id = results[0]["id"]
     hill.id = id
@@ -17,7 +17,7 @@ def select_all():
     sql = "SELECT * FROM hills"
     results = run_sql(sql)
     for result in results:
-        hill = Hill(result["name"], result["height"], result["area"], result["id"])
+        hill = Hill(result["name"], result["height"], result["area"], result["image_path"], result["id"])
         hills.append(hill)
     return hills
 
@@ -29,7 +29,7 @@ def select(id):
     results = run_sql(sql, values)
     if results:
         result = results[0]
-        hill = Hill(result["name"], result["height"], result["area"], result["id"])
+        hill = Hill(result["name"], result["height"], result["area"], result["image_path"], result["id"])
     return hill
 
 
