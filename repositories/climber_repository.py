@@ -77,7 +77,7 @@ def amount_completed(id):
     return [len(climbs), math.ceil(len(climbs) / 222 * 100)]
 
 
-def monthly_bar(id):
+""" def monthly_bar(id):
     sql = "select CAST (date as varchar) from ascents where date >= (current_date - 30) and date < current_date and climber_id = %s group by date, climber_id"
     values = [id]
     results = run_sql(sql, values)
@@ -92,9 +92,10 @@ def monthly_bar(id):
             if day == result[0]:
                 days.update({day: 1})
     df = pandas.DataFrame(list(days.items()))
-    fig = pyplot.figure()
-    ax = fig.add_axes([0, 0, 1, 1])
-    ax.bar(df[0], df[1])
+    pyplot.bar(df[0], df[1])
+    pyplot.tick_params(left = False, labelleft = False, labelbottom=False)
+    pyplot.title('When have you made it out in the last month?')
+    pyplot.xticks(rotation = 30, ha='right')
     pyplot.savefig("./static/images/monthly_plot.jpg")
     # pdb.set_trace()
-    return
+    return """

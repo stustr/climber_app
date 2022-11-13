@@ -61,5 +61,5 @@ def show_climber(id):
     hills = hill_repo.select_all()
     total_m_climbed = climber_repo.total_climbing_height(id)
     percent_completed = climber_repo.amount_completed(id)
-    monthly_bar_chart = climber_repo.monthly_bar(id)
+    # climber_repo.monthly_bar(id)
     return render_template("/climbers/show.html", climber=climber, ascents=ascents, climbs=climbs, hills=hills, total_m_climbed=total_m_climbed, percent_completed=percent_completed)
