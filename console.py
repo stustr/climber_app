@@ -482,5 +482,4 @@ ascent_repo.save(ascent_6)
 ascent_7 = Ascent('2022-10-25', 'trial ascent desc', climber_2, hill_1)
 ascent_repo.save(ascent_7)
 
-column_names = ["date", "climber", "count"]
-print(pandas.DataFrame(ascent_repo.trial_pandas(), columns=column_names))
+climber_repo.monthly_bar(1)

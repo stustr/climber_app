@@ -5,9 +5,6 @@ from repositories import (
     hill_repository as hill_repo,
 )
 import pdb
-import pandas
-from matplotlib import pyplot
-from datetime import date
 
 
 def save(ascent):
@@ -117,25 +114,3 @@ def climbing_comm_height_alltime():
         total = [climber.id, climber_repo.total_climbing_height(climber.id)]
         all_time_height.append(total)
     return all_time_height
-
-
-def trial_pandas():
-    sql = "select CAST (date as varchar) from ascents where date >= (current_date - 30) and date < current_date and climber_id = 1 group by date, climber_id"
-    results = run_sql(sql)
-    today = date.today()
-    today_less_month = date.today().replace(month=today.month - 1)
-    last_month = pandas.date_range(today_less_month, today)
-    days = {}
-    for day in last_month:
-        days[day.strftime("%Y-%m-%d")] = 0   
-    for result in results:
-        for day in days:
-            if day == result[0]:
-                days.update({day:1})
-    df = pandas.DataFrame(list(days.items()))
-    fig = pyplot.figure()
-    ax = fig.add_axes([0,0,1,1])
-    ax.bar(df[0], df[1])
-    pyplot.show()
-    pdb.set_trace()
-    return
