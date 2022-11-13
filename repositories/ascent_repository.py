@@ -24,7 +24,7 @@ def save(ascent):
 
 def select_all():
     ascents = []
-    sql = "SELECT * FROM ascents"
+    sql = "SELECT * FROM ascents ORDER BY date DESC"
     results = run_sql(sql)
 
     for result in results:
