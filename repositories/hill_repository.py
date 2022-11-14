@@ -12,9 +12,10 @@ def save(hill):
     return
 
 
-def select_all():
+def select_all(order_by="height"):
     hills = []
-    sql = "SELECT * FROM hills"
+    sql = f"SELECT * FROM hills ORDER BY {order_by}"
+    # values = [order_by]
     results = run_sql(sql)
     for result in results:
         hill = Hill(

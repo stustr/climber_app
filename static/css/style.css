@@ -12,6 +12,9 @@ body {
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    color: #fcfafa;
+    text-align: center;
+    
 }
 
 #page-wrapper {
@@ -98,6 +101,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 3rem;
 }
 
 footer {
@@ -170,4 +174,11 @@ th {
 
 td {
     padding: 3px;
+}
+
+button.climber-profile-button {
+    background-color: #3d3a4b;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    margin: 1rem;
 }
