@@ -31,7 +31,7 @@ body {
 }
 
 #corbett-banner {
-    width: 120%;
+    width: 100%;
     border-bottom: solid 2px #a4b8c4;
     margin-bottom: 2rem;
 }
@@ -186,4 +186,48 @@ button.climber-profile-button, button#new-ascent-button, #new-sign-up-btn {
     padding: 1rem 2rem;
     margin: 1rem;
     color: #fcfafa;
+}
+
+@media (max-width: 480px) {
+    #corbett-banner {
+        width: 100%;
+    }
+    
+    #hill-show-image {
+        width: 80%;
+    }
+    
+    #hill-show-weather {
+        width: 80%;
+    }
+    
+    #climber-monthly-graph {
+        width: 80%;
+    }
+    
+    p {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    #corbett-banner {
+        width: 100%;
+    }
+    
+    #hill-show-image {
+        width: 80%;
+    }
+    
+    #hill-show-weather {
+        width: 80%;
+    }
+    
+    p {
+        width: 80%;
+    }
+    
+    #climber-monthly-graph {
+        width: 80%;
+    }
 }
