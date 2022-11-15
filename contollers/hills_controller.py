@@ -1,16 +1,23 @@
 from flask import Blueprint, redirect, render_template, request
+import pdb
 
 from models.hill import Hill
 import repositories.hill_repository as hill_repo
+import repositories.rating_repository as rating_repo
 
 hills_blueprint = Blueprint("hills", __name__)
 
 # index
 @hills_blueprint.route("/hills")
 def hills():
-    hills = hill_repo.select_all()
-    return render_template("hills/index.html", hills=hills)
-
+    args = request.args
+    getargs = args.get("order_by")
+    if getargs == None:
+        hills = hill_repo.select_all()
+        return render_template("hills/index.html", hills=hills)
+    else: 
+        hills = hill_repo.select_all(getargs)
+        return render_template("hills/index.html", hills=hills)
 
 # create
 @hills_blueprint.route("/hills", methods=["POST"])
@@ -53,8 +60,9 @@ def delete_hill(id):
     hill_repo.delete(id)
     return redirect("/hills")
 
+
 # show
 @hills_blueprint.route("/hills/<id>")
 def show_hill(id):
-    hill = hill_repo.select(id)
+    hill = hill_repo.select_by_id(id)
     return render_template("/hills/show.html", hill=hill)

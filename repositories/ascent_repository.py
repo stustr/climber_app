@@ -1,7 +1,6 @@
 from db.run_sql import run_sql
 from models.ascent import Ascent
 from repositories import (
-    ascent_repository as ascent_repo,
     climber_repository as climber_repo,
     hill_repository as hill_repo,
 )
@@ -29,7 +28,7 @@ def select_all():
 
     for result in results:
         climber = climber_repo.select(result["climber_id"])
-        hill = hill_repo.select(result["hill_id"])
+        hill = hill_repo.select_by_id(result["hill_id"])
         ascent = Ascent(
             result["date"], result["description"], climber, hill, result["id"]
         )
@@ -45,7 +44,7 @@ def select(id):
     if results:
         result = results[0]
         climber = climber_repo.select(result["climber_id"])
-        hill = hill_repo.select(result["hill_id"])
+        hill = hill_repo.select_by_id(result["hill_id"])
         ascent = Ascent(
             result["date"],
             result["description"],
@@ -106,6 +105,7 @@ def climbing_comm_summits_alltime():
     for result in results:
         all_time_summits.append(result)
     return all_time_summits
+
 
 def climbing_comm_height_alltime():
     all_time_height = []

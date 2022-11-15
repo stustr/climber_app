@@ -4,14 +4,17 @@ from models.climber import Climber
 import repositories.climber_repository as climber_repo
 import repositories.ascent_repository as ascent_repo
 import repositories.hill_repository as hill_repo
+from datetime import datetime
 
 climbers_blueprint = Blueprint("climbers", __name__)
 
 # index
 @climbers_blueprint.route("/climbers")
 def climbers():
+    today = datetime.now()
     climbers = climber_repo.select_all()
-    return render_template("climbers/index.html", climbers=climbers)
+    greeting = climber_repo.greeting(today)
+    return render_template("climbers/index.html", climbers=climbers, greeting=greeting)
 
 
 # create
@@ -61,4 +64,5 @@ def show_climber(id):
     hills = hill_repo.select_all()
     total_m_climbed = climber_repo.total_climbing_height(id)
     percent_completed = climber_repo.amount_completed(id)
+    climber_repo.monthly_bar(id)
     return render_template("/climbers/show.html", climber=climber, ascents=ascents, climbs=climbs, hills=hills, total_m_climbed=total_m_climbed, percent_completed=percent_completed)
