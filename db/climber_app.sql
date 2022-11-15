@@ -7,7 +7,9 @@ CREATE TABLE hills (
     name VARCHAR(255),
     height FLOAT,
     area VARCHAR(255),
-    image_path VARCHAR(500)
+    image_path VARCHAR(500),
+    route_link VARCHAR(255), 
+    weather_path VARCHAR(500)
 );
 CREATE TABLE climbers (
     id SERIAL PRIMARY KEY,

@@ -1,8 +1,10 @@
 from db.run_sql import run_sql
 from models.climber import Climber
 import math
+import matplotlib
 from matplotlib import pyplot
-from datetime import date
+matplotlib.use("AGG")
+from datetime import datetime, date
 import pdb
 import pandas
 
@@ -92,11 +94,28 @@ def monthly_bar(id):
             if day == result[0]:
                 days.update({day: 1})
     df = pandas.DataFrame(list(days.items()))
-    pdb.set_trace()
+    print(f"this is df for id {id}")
+    print(df)
     pyplot.bar(df[0], df[1])
+    # pdb.set_trace()
     pyplot.tick_params(left = False, labelleft = False, labelbottom=False)
     pyplot.title('When have you made it out in the last month?')
     pyplot.xticks(rotation = 30, ha='right')
-    pyplot.savefig("./static/images/monthly_plot.jpg")
+    pyplot.savefig(f"./static/images/monthly_plot_{id}.png")
+    pyplot.clf()
+    pyplot.cla()
+    pyplot.close()
     # pdb.set_trace()
     return
+
+
+def greeting(today):
+    hour = today.hour
+    greeting = ""
+    if hour > 0 and hour < 12:
+        greeting = "Morning"
+    elif hour > 12 and hour < 18:
+        greeting = "Afternoon"
+    else:
+        greeting = "Evening"
+    return greeting

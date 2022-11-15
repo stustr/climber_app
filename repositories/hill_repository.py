@@ -4,8 +4,8 @@ import pdb
 
 
 def save(hill):
-    sql = "INSERT INTO hills (name, height, area, image_path) VALUES (%s, %s, %s, %s) RETURNING id"
-    values = [hill.name, hill.height, hill.area, hill.image_path]
+    sql = "INSERT INTO hills (name, height, area, image_path, route_link, weather_path) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
+    values = [hill.name, hill.height, hill.area, hill.image_path, hill.route_link, hill.weather_path]
     results = run_sql(sql, values)
     id = results[0]["id"]
     hill.id = id
@@ -14,7 +14,10 @@ def save(hill):
 
 def select_all(order_by="height"):
     hills = []
-    sql = f"SELECT * FROM hills ORDER BY {order_by}"
+    if order_by == "height":
+        sql = f"SELECT * FROM hills ORDER BY {order_by} DESC"
+    else:
+        sql = f"SELECT * FROM hills ORDER BY {order_by}"
     # values = [order_by]
     results = run_sql(sql)
     for result in results:
@@ -23,6 +26,8 @@ def select_all(order_by="height"):
             result["height"],
             result["area"],
             result["image_path"],
+            result["route_link"],
+            result["weather_path"],
             result["id"],
         )
         hills.append(hill)
@@ -41,6 +46,8 @@ def select_by_id(id):
             result["height"],
             result["area"],
             result["image_path"],
+            result["route_link"],
+            result["weather_path"],
             result["id"],
         )
     return hill
@@ -58,6 +65,8 @@ def select_by_name(name):
             result["height"],
             result["area"],
             result["image_path"],
+            result["route_link"],
+            result["weather_path"],
             result["id"],
         )
     return hill
