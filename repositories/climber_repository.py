@@ -79,38 +79,8 @@ def amount_completed(id):
         climbs.append(result)
     return [len(climbs), math.ceil(len(climbs) / 222 * 100)]
 
-
-def monthly_bar(id):
-    sql = "select CAST (date as varchar) from ascents where date >= (current_date - 30) and date < current_date and climber_id = %s group by date, climber_id"
-    values = [id]
-    results = run_sql(sql, values)
-    today = date.today()
-    today_less_month = date.today().replace(month=today.month - 1)
-    last_month = pandas.date_range(today_less_month, today)
-    days = {}
-    for day in last_month:
-        days[day.strftime("%Y-%m-%d")] = 0
-    for result in results:
-        for day in days:
-            if day == result[0]:
-                days.update({day: 1})
-    df = pandas.DataFrame(list(days.items()))
-    print(f"this is df for id {id}")
-    print(df[0])
-    pyplot.figure(figsize=(3, 3), facecolor="#3d3a4b")
-    pyplot.axes([0.2,0.1,0.7,0.8], facecolor="#9d9aa3")
-    pyplot.yticks(color="#fcfafa")
-    pyplot.barh(df[0], df[1], color="#0cca4a")
-    pyplot.tick_params(bottom=False, labelbottom=False)
-    pyplot.title('When have you made it out in the last month?', color="#fcfafa")
-    pyplot.savefig(f"./static/images/monthly_plot_{id}.png")
-    pyplot.clf()
-    pyplot.cla()
-    pyplot.close()
-    return
-
 def monthly_heat(id):
-    sql = "select CAST (date as varchar) from ascents where date >= (current_date - 30) and date < current_date and climber_id = %s group by date, climber_id"
+    sql = "select CAST (date as varchar) from ascents where date >= (current_date - 30) and date <= current_date and climber_id = %s group by date, climber_id"
     values = [id]
     results = run_sql(sql, values)
     today = date.today()
@@ -124,7 +94,7 @@ def monthly_heat(id):
             if day == result[0]:
                 days.update({day: 1})
     df = pandas.DataFrame(list(days.items()))
-    month_heat = july.heatmap(df[0], df[1], title='Monthly Activity', cmap=matplotlib.colors.LinearSegmentedColormap.from_list("", ["#c8d3d5","#9d9aa3","#0cca4a"])).get_tightbbox()
+    july.heatmap(df[0], df[1], title='Monthly Activity', cmap=matplotlib.colors.LinearSegmentedColormap.from_list("", ["#c8d3d5","#9d9aa3","#0cca4a"])).get_tightbbox()
     pyplot.savefig(f"./static/images/monthly_heat_{id}.png", bbox_inches="tight")
     pyplot.clf()
     pyplot.cla()

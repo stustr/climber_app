@@ -15,11 +15,14 @@ def ascents():
     climbers = climber_repo.select_all()
     all_time_summits = ascent_repo.climbing_comm_summits_alltime()
     all_time_heights = ascent_repo.climbing_comm_height_alltime()
+    ascent_repo.monthly_heat()
+    comm_total_height = ascent_repo.total_climbing_height()
     return render_template(
         "ascents/index.html",
         ascents=ascents,
         climbers=climbers,
-        all_time_summits=all_time_summits, all_time_heights=all_time_heights
+        all_time_summits=all_time_summits,
+        all_time_heights=all_time_heights, comm_total_height=comm_total_height
     )
 
 
@@ -82,6 +85,7 @@ def show_ascents(id):
     ascent = ascent_repo.select(id)
     climbers = climber_repo.select_all()
     all_time_stats = ascent_repo.climbing_comm_stats_alltime()
+    ascent_repo.monthly_heat()
     return render_template(
         "/ascents/show.html",
         ascent=ascent,

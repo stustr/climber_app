@@ -17,6 +17,24 @@ body {
     
 }
 
+#ascents-banner {
+    background-color: #3d3a4b;
+    padding:30px;   
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#climber-stats {
+    display: flex;
+    gap: 50px;
+    padding: 50px;
+}
+
+#agg-monthly-graph {
+    width: 80%;
+    border: solid 5px #3d3a4b;
+}
+
 #climber-monthly-graph {
     width: 300px;
     border: solid 5px #3d3a4b;
@@ -25,7 +43,7 @@ body {
 #page-wrapper {
     display: flex;
     flex-direction: column;
-    height: 120vh;
+    height: 100vh;
 }
 
 #nav-logo img{
@@ -35,10 +53,23 @@ body {
 }
 
 #corbett-banner {
-    width: 100%;
+    height: 80vh;
     border-bottom: solid 2px #a4b8c4;
-    margin-bottom: 2rem;
     position:absolute;
+}
+
+#start-page-banner {
+    background-image: url(/static/images/background_transp.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 70px;
+    padding-bottom: 250px;
+}
+
+#all-time-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 li {
@@ -105,7 +136,7 @@ a:hover {
 
 
 main {
-    background: #6d6a77;
+    background-image: linear-gradient(to right, #6d6a77, #6d6a77);
     width: 100%;
     flex: 1;
     display: flex;
@@ -156,16 +187,13 @@ header {
     color:#fcfafa;
     text-shadow: 1px 1px #3d3a4b;
     text-align: center;
-    font-size: larger;
+    font-size: x-large;
 }
 
 #start-def {
-    margin-top: 400px;
+    margin-top: 300px;
 }
 
-table {
-    color:#fcfafa;
-}
 
 .page-header {
     text-align: center;
@@ -182,12 +210,50 @@ table {
     padding: 1rem;
 }
 
+#climber-banner {
+    background-color: #3d3a4b;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table {
+    color: #3d3a4b;
+    border-collapse: collapse;
+    border: none;
+}
+
 th {
-    background-color: #3d3a4bb5;
+    background-color: #3d3a4b;
+    border-bottom: solid 3px #a4b8c4;
+    border-left: none;
+    border-right: none;
+    padding: 15px;
+    color: #fcfafa
+}
+
+table a {
+    color: #3d3a4b
+}
+
+table th a {
+    color: #fcfafa
 }
 
 td {
-    padding: 3px;
+    padding: 10px;
+    border: none;
+}
+
+tr {
+   background-color: #E7E5DF; 
+}
+
+tr:nth-child(odd) {
+    background-color: #D3D0CB;
+  }
+  
+caption {
+    color: #fcfafa
 }
 
 button.climber-profile-button, button#new-ascent-button, #new-sign-up-btn {
@@ -198,10 +264,21 @@ button.climber-profile-button, button#new-ascent-button, #new-sign-up-btn {
     color: #fcfafa;
 }
 
+
 #bs-ascents {
+    padding-top: 30px;
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    gap: 70px;
+    align-items: flex-start;
+}
+
+#hill-show-image {
+    width: 500px;
+}
+
+#hill-show-weather {
+    width: 500px;
 }
 
 @media (max-width: 480px) {
@@ -218,6 +295,11 @@ button.climber-profile-button, button#new-ascent-button, #new-sign-up-btn {
     }
     
     #climber-monthly-graph {
+        width: 50%;
+        border: solid 5px #3d3a4b;
+    }
+    
+    #agg-monthly-graph {
         width: 50%;
         border: solid 5px #3d3a4b;
     }
@@ -249,6 +331,11 @@ button.climber-profile-button, button#new-ascent-button, #new-sign-up-btn {
     }
     
     #climber-monthly-graph {
+        width: 50%;
+        border: solid 5px #3d3a4b;
+    }
+    
+    #agg-monthly-graph {
         width: 50%;
         border: solid 5px #3d3a4b;
     }

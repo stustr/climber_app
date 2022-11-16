@@ -1,51 +1,62 @@
 {% extends 'base.html' %} {% block main %}
+<h2>{{climber.name}} these are your stats:</h2>
+<div id="climber-banner">
+  <h3>
+    You've hit {{ percent_completed[0] }} summits. That's {{ percent_completed[1]
+    }}% of the total. Well done - now go get the next one!
+  </h3>
+  <h2>Total climbed:</h2>
+  <h2>{{ total_m_climbed }} m</h2>
+</div>
+<div id="climber-stats">
+  <table>
+    <caption>
+      <h3>Your trips</h3>
+    </caption>
+    <tr>
+      <th>Corbett</th>
+      <th>Ascents</th>
+    </tr>
+    {% for climb in climbs %}
+    <tr>
+      <td>{{ hills[climb[0]-1].name }}</td>
+      <td>{{ climb[1] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <img
+      id="climber-monthly-graph"
+      src="/static/images/monthly_heat_{{climber.id}}.png"
+      alt="monthly activity chart"
+    />
+  <table>
+    <caption>
+      <h3>Your climbs</h2>
+      </caption>
+      <tr>
+        <th>Corbett</th>
+        <th>Height</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
+      </tr>
+      {% for ascent in ascents %} {% if ascent.climber.name == climber.name %}
+      <tr>
+        <td>{{ ascent.hill.name }}</td>
+        <td>{{ ascent.hill.height }}</td>
+        <td>{{ ascent.date }}</td>
+        <td><a href="/ascents/{{ ascent.id }}/edit">Edit</a></td>
+        <td>
+          <form action="/ascents/{{ ascent.id }}/delete" method="POST">
+            <input type="submit" value="Delete" />
+          </form>
+        </td>
+      </tr>
+      {% endif %}{% endfor %}
+    </table>
+</div>
 <h3>Been on a climb?</h3>
 <a href="/ascents/new"
   ><button id="new-ascent-button">Add a new ascent</button></a
 >
-<h2>{{climber.name}} these are your stats</h2>
-<h3>
-  You've hit {{ percent_completed[0] }} summits. That's {{ percent_completed[1]
-  }}% of the total. Well done - now go get the next one!
-</h3>
-<table>
-  <tr>
-    <th>Corbett</th>
-    <th>Height</th>
-    <th>Date</th>
-  </tr>
-  {% for ascent in ascents %} {% if ascent.climber.name == climber.name %}
-  <tr>
-    <td>{{ ascent.hill.name }}</td>
-    <td>{{ ascent.hill.height }}</td>
-    <td>{{ ascent.date }}</td>
-    <td><a href="/ascents/{{ ascent.id }}/edit">Edit</a></td>
-    <td>
-      <form action="/ascents/{{ ascent.id }}/delete" method="POST">
-        <input type="submit" value="Delete" />
-      </form>
-    </td>
-  </tr>
-  {% endif %}{% endfor %}
-</table>
-<h3>Corbets you've climbed:</h3>
-<table>
-  <tr>
-    <th>Corbett</th>
-    <th>Ascents</th>
-  </tr>
-  {% for climb in climbs %}
-  <tr>
-    <td>{{ hills[climb[0]-1].name }}</td>
-    <td>{{ climb[1] }}</td>
-  </tr>
-  {% endfor %}
-</table>
-<h3>Total climbed:</h3>
-<h2>{{ total_m_climbed }} m</h2>
-<img
-  id="climber-monthly-graph"
-  src="/static/images/monthly_heat_{{climber.id}}.png"
-  alt="monthly activity chart"
-/>
 {% endblock main %}
