@@ -1,401 +1,403 @@
 :root {
-    --main-grey: #3d3a4b;
-    --darkish-grey: #6d6a77;
-    --lighter-grey: #9d9aa3;
-    --offwhite: #fcfafa;
-    --lightest-grey: #c8d3d5;
-    --grey-blue: #a4b8c4;
-    --accent-green: #0cca4a;
+  --main-grey: #3d3a4b;
+  --darkish-grey: #6d6a77;
+  --lighter-grey: #9d9aa3;
+  --offwhite: #fcfafa;
+  --lightest-grey: #c8d3d5;
+  --grey-blue: #a4b8c4;
+  --accent-green: #0cca4a;
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #fcfafa;
-    text-align: center;
-    
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fcfafa;
+  text-align: center;
 }
 
 #ascents-banner {
-    background-color: #3d3a4b;
-    padding:30px;   
-    border-radius: 5px;
-    margin-top: 20px;
+  background-color: #3d3a4b;
+  padding: 30px;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
 #climber-stats {
-    display: flex;
-    gap: 50px;
-    padding: 50px;
+  display: flex;
+  gap: 50px;
+  padding: 50px;
 }
 
 #agg-monthly-graph {
-    width: 80%;
-    border: solid 5px #3d3a4b;
+  width: 80%;
+  border: solid 5px #3d3a4b;
 }
 
 #climber-monthly-graph {
-    width: 300px;
-    border: solid 5px #3d3a4b;
+  width: 300px;
+  border: solid 5px #3d3a4b;
 }
 
 #page-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-#nav-logo img{
-    height: 120px;
-    color:white;
-    margin-right: auto;
+#nav-logo img {
+  height: 120px;
+  color: white;
+  margin-right: auto;
 }
 
 #corbett-banner {
-    height: 80vh;
-    border-bottom: solid 2px #a4b8c4;
-    position:absolute;
+  height: 80vh;
+  border-bottom: solid 2px #a4b8c4;
+  position: absolute;
 }
 
 #start-page-banner {
-    background-image: url(/static/images/background_transp.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 70px;
-    padding-bottom: 250px;
+  background-image: url(/static/images/background_transp.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 70px;
+  padding-bottom: 250px;
 }
 
 #all-time-stats {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 li {
-    list-style-type: none;
-    
+  list-style-type: none;
 }
 
 nav {
-    background-color: var(--main-grey);
-    display: flex;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-    border-bottom: solid 1px #0cca4a;
+  background-color: var(--main-grey);
+  display: flex;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  border-bottom: solid 1px #0cca4a;
 }
 
 nav ul {
-    display: flex;
-    margin: -20px 2rem;
-    padding: 1rem;
-    justify-content: flex-end;
-    gap: 1rem;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  margin: -20px 2rem;
+  padding: 1rem;
+  justify-content: flex-end;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
 }
 
-nav>ul>li:first-child {
-    margin-right: auto;
+nav > ul > li:first-child {
+  margin-right: auto;
 }
 
 a {
-    text-decoration: none;
-    color: #fcfafa;
+  text-decoration: none;
+  color: #fcfafa;
 }
 
 a:hover {
-    color:#0cca4a;
+  color: #0cca4a;
 }
 
 .dropdown {
-    position: relative;
+  position: relative;
 }
 
 .dropdown:hover .submenu {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    background: #a4b8c4;
-    border-radius: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: #a4b8c4;
+  border-radius: 0.1rem;
 }
 
 .submenu {
-    display: none;
-    z-index: 100;
+  display: none;
+  z-index: 100;
 }
 
 .dropdown a > span {
-    z-index: 200;
-    position: relative;
+  z-index: 200;
+  position: relative;
 }
 
 .submenu li {
-    list-style: none;
+  list-style: none;
 }
 
 #new-ascent {
-    display: flex;
-    flex-direction: column
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-    background-image: linear-gradient(to right, #6d6a77, #6d6a77);
-    width: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 3rem;
+  background-image: linear-gradient(to right, #6d6a77, #6d6a77);
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3rem;
 }
 
 footer {
-    width: 100%;
-    background-color: #3d3a4b;
-    display: flex;
-    color: white;
-    justify-content: center;
-    border-top: solid 1px #0cca4a;
+  width: 100%;
+  background-color: #3d3a4b;
+  display: flex;
+  color: white;
+  justify-content: center;
+  border-top: solid 1px #0cca4a;
 }
 
-footer ul{
-    display: flex;
-    margin: 0;
-    padding: 1rem;
-    gap: 1rem;
+footer ul {
+  display: flex;
+  margin: 0;
+  padding: 1rem;
+  gap: 1rem;
 }
 
-#hill-profile-gallery{
-    color: black;
+#hill-profile-gallery {
+  color: black;
 }
 
-table, th, td {
-    border: 1px solid;
+table,
+th,
+td {
+  border: 1px solid;
 }
 
-th, td {
-    padding: 1rem;
-    text-align: center;
+th,
+td {
+  padding: 1rem;
+  text-align: center;
 }
 
 .hill-gallery-item {
-    padding:1rem;
+  padding: 1rem;
 }
 
 header {
-    width: 100%;
+  width: 100%;
 }
 
 .start-intro {
-    padding: 0 3rem;
-    color:#fcfafa;
-    text-shadow: 1px 1px #3d3a4b;
-    text-align: center;
-    font-size: x-large;
+  padding: 0 3rem;
+  color: #fcfafa;
+  text-shadow: 1px 1px #3d3a4b;
+  text-align: center;
+  font-size: x-large;
 }
 
 #start-def {
-    margin-top: 300px;
+  margin-top: 300px;
 }
 
-
 .page-header {
-    text-align: center;
-    font-size: x-large;
-    color: #fcfafa;
-    background-color: #3d3a4b;
-    padding: 1rem;
-    border-radius: 0.2rem;
+  text-align: center;
+  font-size: x-large;
+  color: #fcfafa;
+  background-color: #3d3a4b;
+  padding: 1rem;
+  border-radius: 0.2rem;
 }
 
 #corbett-table {
-    margin: 0 1rem;
-    padding: 1rem;
-    height:60vh;
-    overflow: scroll;
+  margin: 0 1rem;
+  padding: 1rem;
+  height: 60vh;
+  overflow: scroll;
 }
 
 #climber-banner {
-    background-color: #3d3a4b;
-    padding: 20px;
-    border-radius: 10px;
+  background-color: #3d3a4b;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 table {
-    color: #3d3a4b;
-    border-collapse: collapse;
-    border: none;
+  color: #3d3a4b;
+  border-collapse: collapse;
+  border: none;
 }
 
 th {
-    background-color: #3d3a4b;
-    border-bottom: solid 3px #a4b8c4;
-    border-left: none;
-    border-right: none;
-    padding: 15px;
-    color: #fcfafa
+  background-color: #3d3a4b;
+  border-bottom: solid 3px #a4b8c4;
+  border-left: none;
+  border-right: none;
+  padding: 15px;
+  color: #fcfafa;
 }
 
 table a {
-    color: #3d3a4b
+  color: #3d3a4b;
 }
 
 table th a {
-    color: #fcfafa
+  color: #fcfafa;
 }
 
 td {
-    padding: 10px;
-    border: none;
+  padding: 10px;
+  border: none;
 }
 
 tr {
-   background-color: #E7E5DF; 
+  background-color: #e7e5df;
 }
 
 tr:nth-child(odd) {
-    background-color: #D3D0CB;
-  }
-  
-caption {
-    color: #fcfafa
+  background-color: #d3d0cb;
 }
 
-button.climber-profile-button, button#new-ascent-button, #new-sign-up-btn {
-    background-color: #3d3a4b;
-    border-radius: 1rem;
-    padding: 1rem 2rem;
-    margin: 1rem;
-    color: #fcfafa;
+caption {
+  color: #fcfafa;
+}
+
+button.climber-profile-button,
+button#new-ascent-button,
+#new-sign-up-btn {
+  background-color: #3d3a4b;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  color: #fcfafa;
 }
 
 .ascent-update-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
 }
 
-#top-climb-show{
-    display: flex;    
-    padding-top: 30px;
-    gap: 200px;
-    align-items: center;
+#top-climb-show {
+  display: flex;
+  padding-top: 30px;
+  gap: 200px;
+  align-items: center;
 }
 
 #bs-ascents {
-    padding-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 70px;
-    align-items: flex-start;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  align-items: flex-start;
 }
 
 #hill-show-image {
-    width: 500px;
+  width: 500px;
 }
 
 #hill-show-weather {
-    width: 500px;
+  width: 500px;
 }
 
 @media (max-width: 480px) {
-    #corbett-banner {
-        width: 100%;
-    }
-    
-    #hill-show-image {
-        width: 80%;
-    }
-    
-    #hill-show-weather {
-        width: 80%;
-    }
-    
-    #climber-monthly-graph {
-        width: 50%;
-        border: solid 5px #3d3a4b;
-    }
-    
-    #agg-monthly-graph {
-        width: 50%;
-        border: solid 5px #3d3a4b;
-    }
-    
-    p {
-        width: 80%;
-    }
-    
-    nav ul {
-        padding: -20px 0
-    }
+  #corbett-banner {
+    width: 100%;
+  }
+
+  #hill-show-image {
+    width: 80%;
+  }
+
+  #hill-show-weather {
+    width: 80%;
+  }
+
+  #climber-monthly-graph {
+    width: 50%;
+    border: solid 5px #3d3a4b;
+  }
+
+  #agg-monthly-graph {
+    width: 50%;
+    border: solid 5px #3d3a4b;
+  }
+
+  p {
+    width: 80%;
+  }
+
+  nav ul {
+    padding: -20px 0;
+  }
 }
 
 @media (max-width: 768px) {
-    #start-page-banner {
-        padding: 0;   
-    }
-    
-    #start-def {
-        margin: 10px;
-    }
-    
-    nav ul{
-        margin: 0;
-        padding: 5px;
-        gap: 5px;
-    }
-    
-    #nav-logo img {
-        margin-right: 5px;
-    }
-    
-    #ascents-banner {
-        padding: 10px;
-    }
-    
-    #bs-ascents {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    #top-climb-show {
-        display: flex;
-        flex-direction: column;
-        padding: 0;
-        gap: 10px;
-    }
-    
-    #climber-stats {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    #corbett-banner {
-        width: 100%;
-    }
-    
-    #hill-show-image {
-        width: 80%;
-    }
-    
-    #hill-show-weather {
-        width: 80%;
-    }
-    
-    p {
-        width: 80%;
-    }
-    
-    #climber-monthly-graph {
-        width: 50%;
-        border: solid 5px #3d3a4b;
-    }
-    
-    #agg-monthly-graph {
-        width: 50%;
-        border: solid 5px #3d3a4b;
-    }
+  #start-page-banner {
+    padding: 0;
+  }
+
+  #start-def {
+    margin: 10px;
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 5px;
+    gap: 5px;
+  }
+
+  #nav-logo img {
+    margin-right: 5px;
+  }
+
+  #ascents-banner {
+    padding: 10px;
+  }
+
+  #bs-ascents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #top-climb-show {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 10px;
+  }
+
+  #climber-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #corbett-banner {
+    width: 100%;
+  }
+
+  #hill-show-image {
+    width: 80%;
+  }
+
+  #hill-show-weather {
+    width: 80%;
+  }
+
+  p {
+    width: 80%;
+  }
+
+  #climber-monthly-graph {
+    width: 50%;
+    border: solid 5px #3d3a4b;
+  }
+
+  #agg-monthly-graph {
+    width: 50%;
+    border: solid 5px #3d3a4b;
+  }
 }
