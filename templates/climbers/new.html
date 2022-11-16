@@ -1,11 +1,10 @@
-{% extends 'base.html' %}
-{% block main %}
+{% extends 'base.html' %} {% block main %}
 <section class="join-form">
-    <h2>Would you like to join the Corbett climber community?</h2>
-    <form action="/climbers" method="post">
-      <label for="name">Name: </label
-      ><input type="text" name="name" id="climber-name-input" />
-      <button type="submit" id="new-sign-up-btn">Sign up</button>
-    </form>
-  </section>
+  <h2>Would you like to join the Corbett climber community?</h2>
+  <form action="/climbers" method="post">
+    <label for="name">Name: </label
+    ><input type="text" name="name" id="climber-name-input" />
+    <button type="submit" id="new-sign-up-btn">Sign up</button>
+  </form>
+</section>
 {% endblock main %}

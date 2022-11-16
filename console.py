@@ -482,6 +482,4 @@ ascent_repo.save(ascent_6)
 ascent_7 = Ascent('2022-10-25', 'trial ascent desc', climber_2, hill_1)
 ascent_repo.save(ascent_7)
 
-climber_repo.monthly_bar(1)
-climber_repo.monthly_bar(2)
-climber_repo.monthly_bar(3)
+climber_repo.monthly_heat(1)

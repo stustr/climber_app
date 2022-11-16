@@ -13,7 +13,7 @@ climbers_blueprint = Blueprint("climbers", __name__)
 def climbers():
     today = datetime.now()
     climbers = climber_repo.select_all()
-    greeting = climber_repo.greeting(today)
+    greeting = climber_repo.greeting()
     return render_template("climbers/index.html", climbers=climbers, greeting=greeting)
 
 
@@ -64,5 +64,5 @@ def show_climber(id):
     hills = hill_repo.select_all()
     total_m_climbed = climber_repo.total_climbing_height(id)
     percent_completed = climber_repo.amount_completed(id)
-    climber_repo.monthly_bar(id)
+    climber_repo.monthly_heat(id)
     return render_template("/climbers/show.html", climber=climber, ascents=ascents, climbs=climbs, hills=hills, total_m_climbed=total_m_climbed, percent_completed=percent_completed)

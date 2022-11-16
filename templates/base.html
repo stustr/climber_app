@@ -16,9 +16,7 @@
         {% block header %}
         <nav>
           <ul>
-            <a id="nav-logo" href="/">Climb Corbetts</a>
-            <li><a href="/hills">Hills</a></li>
-            <li><a href="/ascents">Ascents</a></li>
+            <li><a id="nav-logo" href="/"><img src="/static/images/final_logo.png" alt="Climb corbetts"></a></li>
             <li class="dropdown">
               <a><span>Climbers</span></a>
               <ul class="submenu">
@@ -26,6 +24,8 @@
                 <li><a href="/climbers/new">Add new climber</a></li>
               </ul>
             </li>
+            <li><a href="/hills">Hills</a></li>
+            <li><a href="/ascents">Ascents</a></li>
           </ul>
         </nav>
         {% endblock header %}

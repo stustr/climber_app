@@ -3,7 +3,7 @@
     --darkish-grey: #6d6a77;
     --lighter-grey: #9d9aa3;
     --offwhite: #fcfafa;
-    --lightest-grey: c8d3d5;
+    --lightest-grey: #c8d3d5;
     --grey-blue: #a4b8c4;
     --accent-green: #0cca4a;
 }
@@ -17,23 +17,28 @@ body {
     
 }
 
+#climber-monthly-graph {
+    width: 300px;
+    border: solid 5px #3d3a4b;
+}
+
 #page-wrapper {
     display: flex;
     flex-direction: column;
     height: 120vh;
 }
 
-#nav-logo {
-    color:#0cca4a;
-    font-weight: bolder;
+#nav-logo img{
+    height: 120px;
+    color:white;
     margin-right: auto;
-    font-size: large;
 }
 
 #corbett-banner {
     width: 100%;
     border-bottom: solid 2px #a4b8c4;
     margin-bottom: 2rem;
+    position:absolute;
 }
 
 li {
@@ -51,7 +56,7 @@ nav {
 
 nav ul {
     display: flex;
-    margin: 0;
+    margin: -20px 2rem;
     padding: 1rem;
     justify-content: flex-end;
     gap: 1rem;
@@ -97,6 +102,7 @@ a:hover {
 .submenu li {
     list-style: none;
 }
+
 
 main {
     background: #6d6a77;
@@ -153,6 +159,10 @@ header {
     font-size: larger;
 }
 
+#start-def {
+    margin-top: 400px;
+}
+
 table {
     color:#fcfafa;
 }
@@ -188,6 +198,12 @@ button.climber-profile-button, button#new-ascent-button, #new-sign-up-btn {
     color: #fcfafa;
 }
 
+#bs-ascents {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 @media (max-width: 480px) {
     #corbett-banner {
         width: 100%;
@@ -202,11 +218,16 @@ button.climber-profile-button, button#new-ascent-button, #new-sign-up-btn {
     }
     
     #climber-monthly-graph {
-        width: 80%;
+        width: 50%;
+        border: solid 5px #3d3a4b;
     }
     
     p {
         width: 80%;
+    }
+    
+    nav ul {
+        padding: -20px 0
     }
 }
 
@@ -228,6 +249,12 @@ button.climber-profile-button, button#new-ascent-button, #new-sign-up-btn {
     }
     
     #climber-monthly-graph {
-        width: 80%;
+        width: 50%;
+        border: solid 5px #3d3a4b;
     }
+    
+    nav ul {
+        padding: -20px 0
+    }
+    
 }
